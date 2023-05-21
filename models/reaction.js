@@ -1,16 +1,16 @@
-const { Schema, model } = require('mongoose');
+const { Schema, Types, model } = require('mongoose');
 
 const reactionSchema = new Schema(
   {
     // user Mongoose's ObjectId data type default value to new ObjectId
-    assignmentId: { //TODO: rename to reactionId
+    reactionId: { 
       type: Schema.Types.ObjectId,
       default: () => new Types.ObjectId(),
     },
     reactionBody: {
       type: String,
       required: true,
-      min_length: 280, //TODO: change to max length instead of min length
+      max_length: 280, 
     },
     username: {
       type: String,
